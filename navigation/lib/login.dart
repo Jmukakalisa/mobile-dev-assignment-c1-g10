@@ -130,21 +130,6 @@ class _LoginState extends State<Login> {
                   borderRadius: BorderRadius.circular(10)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 252, 252, 252), fontSize: 24),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 10.0, right: 15.0, top: 15, bottom: 10),
-              child: TextButton(
-                onPressed: () {
                   // It returns true if the form is valid, otherwise returns false
                   if (_formkey.currentState!.validate()) {
                     // If the form is valid, display a Snackbar.
@@ -170,11 +155,7 @@ class _LoginState extends State<Login> {
                       });
                       if (_firebaseAuth.currentUser != null) {
                         Navigator.of(context).pushNamed('/');
-                        //MaterialPageRoute(builder: (_) => HomeScreen()));
                       }
-                      // else {
-                      //   Navigator.of(context).pushNamed('/signin');
-                      // }
                     }).catchError((e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -192,6 +173,21 @@ class _LoginState extends State<Login> {
                       );
                     });
                   }
+                },
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 252, 252, 252), fontSize: 24),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 10.0, right: 15.0, top: 15, bottom: 10),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
                 },
                 child: Text(
                   'I’m a new user. Sign Up',

@@ -154,7 +154,9 @@ class _LoginState extends State<Login> {
                         _success = true;
                       });
                       if (_firebaseAuth.currentUser != null) {
-                        Navigator.of(context).pushNamed('/');
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => HomeScreen()));
+                        // Navigator.of(context).pushNamed('/');
                       }
                     }).catchError((e) {
                       ScaffoldMessenger.of(context).showSnackBar(
